@@ -1,14 +1,14 @@
 
 
 class BookCitation:
-    def __init__(self, title, year, author, publisher):
+    def __init__(self, title, author, year, publisher):
         self.title = title
-        self.year = year
         self.author = author
+        self.year = year
         self.publisher = publisher
 
     def save_citation(self):
-        print('sitation saved')
+        print('citation saved')
     
     def __repr__(self) -> str:
         return self.title

@@ -1,10 +1,13 @@
+# import bookservice from bookservicefile
+
 def book_citation():
-    title = input('title: ')
-    year = input('year: ')
-    author = input('author: ')
-    publisher = input('publisher: ')
+    title = input('Title: ')
+    year = input('Year: ')
+    author = input('Author: ')
+    publisher = input('Publisher: ')
 
     print(title, year, author, publisher)
+    #bookservice.new_book(title, year, author, publisher)
 
 
 if __name__ == "__main__":
