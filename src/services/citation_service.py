@@ -6,6 +6,7 @@ class CitationServices:
         self._citation_repository= citation_repository
 
     def create_book(self, title, author, year, publisher):
+        print(Book(title, author, year, publisher))
         book = self._citation_repository.create_book(Book(title, author, year, publisher))
         return book
 
