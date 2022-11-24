@@ -1,3 +1,5 @@
+from new_citation import book_citation
+
 def main():
     while True:
         user_input = input('next command: ')
@@ -6,7 +8,7 @@ def main():
             break
 
         if user_input == 'new book':
-            print('new_book_function() called')
+            book_citation()
 
 if __name__ == '__main__':
     main()
