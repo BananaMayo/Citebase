@@ -1,5 +1,7 @@
 # Citebase
 
+![GHA workflow badge](https://github.com/BananaMayo/Citebase/workflows/CI/badge.svg)
+
 This project is licensed under the terms of the MIT license.
 
 ## Product Backlog
