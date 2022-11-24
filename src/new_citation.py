@@ -1,4 +1,4 @@
-# import bookservice from bookservicefile
+from services.citation_service import citation_services
 
 def book_citation():
     title = input('Title: ')
@@ -6,8 +6,9 @@ def book_citation():
     year = input('Year: ')
     publisher = input('Publisher: ')
 
-    print(title, author, year, publisher)
-    #bookservice.new_book(title, year, author, publisher)
+    #print(title, author, year, publisher)
+
+    citation_services.create_book(title, author, year, publisher)
 
 
 if __name__ == "__main__":
