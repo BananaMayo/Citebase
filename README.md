@@ -1,5 +1,7 @@
 # Citebase
 
+This project is licensed under the terms of the MIT license.
+
 README:ssa tulee löytyä ainakin seuraavat asiat:
 
 Linkit backlogeihin (backlogeista tulee olla luettavissa olevat versiot julkisessa internetissä)
