@@ -1,6 +1,6 @@
 from database_connection import get_database_connection
 from entities.book import Book
-from services.citation_service import citation_services
+#from services.citation_service import citation_services
 
 class CitationRepository:
     def __init__(self, connection):
