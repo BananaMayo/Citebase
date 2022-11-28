@@ -8,7 +8,26 @@ This project is licensed under the terms of the MIT license.
 ## Product Backlog
 [Product Backlog](https://docs.google.com/spreadsheets/d/1Vgykm0RkudteIoG1uGLySVpMnRyPw8JiHMKXIQHLDTE/edit?usp=sharing)
 
-## README:ssa tulee löytyä ainakin seuraavat asiat (todo):
+## Asennus
+1. Riippuvuuksien asennus komennolla:
+```
+$ poetry install
+```
+2. Siirry virtuaalitilaan komennolla:
+```
+$ poetry shell
+```
+## Toiminnot komentorivillä
+### Ohjelman suorittaminen
+Ohjelman pystyy suorittamaan komennolla:
 
-* Linkki CI-palveluun
-* Jos kyse työpöytäsovelluksesta, tulee ohjelmalle olla asennus- ja käyttöohje
+* Jos olet juurihakemistossa:
+```
+$ python3 src/index.py
+```
+* Jos olet src:n sisällä
+```
+$ python3 index.py
+```
+
+Linkki CI-palveluun: [CI-palvelu](https://github.com/BananaMayo/Citebase/actions)
