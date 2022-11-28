@@ -10,7 +10,7 @@ class CitationServices:
         return book
 
     def show_books(self):
-        self._citation_repository.show_books()
+        return self._citation_repository.show_books()
         
 
 citation_services = CitationServices()
