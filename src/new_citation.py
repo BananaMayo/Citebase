@@ -8,7 +8,8 @@ def book_citation():
 
     #print(title, author, year, publisher)
 
-    citation_services.create_book(title, author, year, publisher)
+    create = citation_services.create_book(title, author, year, publisher)
+    print(create)
 
 def show_books():
     titles = citation_services.show_books()
