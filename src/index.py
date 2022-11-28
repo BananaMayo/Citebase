@@ -4,9 +4,9 @@ from front_end.list_citation import list_book_titles
 
 def main():
     while True:
-        user_input = input('next command: (new book, list books)')
+        user_input = input('next command (new book, list books, exit): ')
 
-        if user_input == '':
+        if user_input == 'exit':
             break
 
         if user_input == 'new book':
