@@ -1,5 +1,5 @@
 from database_connection import get_database_connection
-
+from database_connection import get_test_database_connection
 
 def drop_tables(connection):
     cursor = connection.cursor()
@@ -21,6 +21,10 @@ def create_tables(connection):
 def initialize_database():
     connection = get_database_connection()
     drop_tables(connection)
+    create_tables(connection)
+
+def initialize_test_database():
+    connection=get_test_database_connection()
     create_tables(connection)
 
 
