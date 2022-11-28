@@ -1,4 +1,4 @@
-from repositories.citation_repository import CitationRepository as default_citation_repository
+from repositories.citation_repository import citation_repository as default_citation_repository
 from entities.book import Book
 
 class CitationServices:
@@ -8,5 +8,6 @@ class CitationServices:
     def create_book(self, title, author, year, publisher):
         book = self._citation_repository.create_book(Book(title, author, year, publisher))
         return book
+        
 
 citation_services = CitationServices()
