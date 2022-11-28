@@ -10,6 +10,10 @@ def book_citation():
 
     citation_services.create_book(title, author, year, publisher)
 
+def show_books():
+    citation_services.show_books()
+
+
 
 if __name__ == "__main__":
     book_citation()
