@@ -12,5 +12,21 @@ class CitationRepository:
         self._connection.commit()
 
         return "Citation added successfully"
+    
+    def show_books(self):
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT * FROM Books")
+
+        rows = cursor.fetchall()
+
+        titles = []
+
+        for row in rows:
+            titles.append((row["title"]))
+        
+        return titles
+
+
 
 citation_repository = CitationRepository(get_database_connection())
