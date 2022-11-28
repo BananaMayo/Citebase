@@ -30,4 +30,5 @@ $ python3 src/index.py
 $ python3 index.py
 ```
 
-Linkki CI-palveluun: [CI-palvelu](https://github.com/BananaMayo/Citebase/actions)
+### Linkki CI-palveluun: 
+#### [CI-palvelu](https://github.com/BananaMayo/Citebase/actions)
