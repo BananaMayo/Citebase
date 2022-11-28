@@ -30,7 +30,4 @@ $ python3 src/index.py
 $ python3 index.py
 ```
 
-## README:ssa tulee löytyä ainakin seuraavat asiat (todo):
-
-* Linkki CI-palveluun
-
+Linkki CI-palveluun: [CI-palvelu](https://github.com/BananaMayo/Citebase/actions)

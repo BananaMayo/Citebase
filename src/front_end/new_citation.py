@@ -7,4 +7,5 @@ def book_citation():
     year = input('Year: ')
     publisher = input('Publisher: ')
 
-    citation_services.create_book(title, author, year, publisher)
+    result = citation_services.create_book(title, author, year, publisher)
+    print(result)
