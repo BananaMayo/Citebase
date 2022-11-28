@@ -1,5 +1,3 @@
-
-
 class BookCitation:
     def __init__(self, title, author, year, publisher):
         self.title = title
