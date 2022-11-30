@@ -8,7 +8,7 @@ from initialize_database import initialize_test_database
 
 class TestCitations(unittest.TestCase):
     def setUp(self):
-        self.testrepo=CitationRepository(get_test_database_connection)
+        self.testrepo=CitationRepository(get_test_database_connection())
         self.testservices=citation_services
         self.book_1=Book("Harry Potter","Rowling",2000,"Otava")
         initialize_test_database()

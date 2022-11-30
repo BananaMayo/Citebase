@@ -25,6 +25,7 @@ def initialize_database():
 
 def initialize_test_database():
     connection=get_test_database_connection()
+    drop_tables(connection)
     create_tables(connection)
 
 
