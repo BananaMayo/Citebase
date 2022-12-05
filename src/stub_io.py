@@ -6,7 +6,7 @@ class StubIO:
     def write(self, value):
         self.outputs.append(value)
 
-    def read(self, prompt):
+    def read(self):
         if len(self.inputs) > 0:
             return self.inputs.pop(0)
         else:
