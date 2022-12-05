@@ -27,6 +27,22 @@ class CitationRepository:
         
         return titles
 
+    
+    def delete_book(self, title):
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM Books WHERE title= ?", [title])
+        self._connection.commit()
+
+        return "Book removed successfully"
+
+    def delete_all_books(self):
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM Books")
+
+        return "All books removed successfully"
+
 
 
 citation_repository = CitationRepository(get_database_connection())
