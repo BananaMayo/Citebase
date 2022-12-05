@@ -20,11 +20,25 @@ class TestCitations(unittest.TestCase):
         test= self.testrepo.create_book(self.book_1)
         self.assertEqual(test, "Citation added successfully")
 
-    
     def test_show_books(self):
         self.testrepo.create_book(self.book_1)
         self.testrepo.create_book(self.book_2)
         self.testrepo.create_book(self.book_3)
         books=self.testrepo.show_books()
-        print(books)
-        self.assertEqual(books, ["Harry Potter","Taru sormusten herrasta","Muumipeikko ja pyrstötähti"])
+        self.assertEqual(books, [self.book_1.title,self.book_2.title,self.book_3.title])
+
+    def test_delete_book(self):
+        self.testrepo.create_book(self.book_1)
+        self.testrepo.create_book(self.book_2)
+        test=self.testrepo.delete_book(self.book_1.title)
+        test_list=self.testrepo.show_books()
+        self.assertEqual(test, "Book removed successfully")
+        self.assertEqual(len(test_list), 1)
+
+    def test_delete_all_books(self):
+        self.testrepo.create_book(self.book_1)
+        self.testrepo.create_book(self.book_2)
+        test=self.testrepo.delete_all_books()
+        test_list=self.testrepo.show_books()
+        self.assertEqual(test, "All books removed successfully")
+        self.assertEqual(len(test_list), 0)
