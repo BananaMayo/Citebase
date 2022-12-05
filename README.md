@@ -1,6 +1,7 @@
 # Citebase
 
 ![GHA workflow badge](https://github.com/BananaMayo/Citebase/workflows/CI/badge.svg)
+
 [![codecov](https://codecov.io/gh/BananaMayo/Connect4/branch/master/graph/badge.svg)](https://codecov.io/gh/BananaMayo/Citebase)
 
 This project is licensed under the terms of the MIT license.
