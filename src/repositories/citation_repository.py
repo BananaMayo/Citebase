@@ -23,7 +23,7 @@ class CitationRepository:
         titles = []
 
         for row in rows:
-            titles.append((row["title"]))
+            titles.append((row[0]))
         
         return titles
 
