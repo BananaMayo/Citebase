@@ -17,5 +17,3 @@ class TestCitations(unittest.TestCase):
     def test_create_book_citation(self):
         test= self.testrepo.create_book(self.book_1)
         self.assertEqual(test, "Citation added successfully")
-
-        
