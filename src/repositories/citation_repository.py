@@ -23,9 +23,25 @@ class CitationRepository:
         titles = []
 
         for row in rows:
-            titles.append((row["title"]))
+            titles.append((row[0]))
         
         return titles
+
+    
+    def delete_book(self, title):
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM Books WHERE title= ?", [title])
+        self._connection.commit()
+
+        return "Book removed successfully"
+
+    def delete_all_books(self):
+        cursor = self._connection.cursor()
+
+        cursor.execute("DELETE FROM Books")
+
+        return "All books removed successfully"
 
 
 
