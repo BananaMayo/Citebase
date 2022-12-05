@@ -10,7 +10,7 @@ class App:
 
     def run(self):
         while True:
-            user_input = self.io.input('next command (new book, list books, exit, delete book, delete all): ')
+            user_input = self.io.input('next command (new book, list books, exit, delete book, delete all):')
 
             if user_input == 'exit':
                 break
