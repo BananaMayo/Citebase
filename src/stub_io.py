@@ -3,10 +3,11 @@ class StubIO:
         self.inputs = inputs or []
         self.outputs = []
 
-    def write(self, value):
+    def print(self, value):
         self.outputs.append(value)
 
-    def read(self):
+    def input(self, prompt):
+        self.print(prompt)
         if len(self.inputs) > 0:
             return self.inputs.pop(0)
         else:
