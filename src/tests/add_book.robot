@@ -5,7 +5,7 @@ Library  ../AppLibrary.py
 Application starts with prompt
     input  exit
     Run Application
-    Output Should Contain  next command (new book, list books, exit, delete book, delete all):
+    Output Should Contain  next command (new book, list books, exit, delete book, delete all, bib):
 
 Application indicates empty list in listing
     input  list books
