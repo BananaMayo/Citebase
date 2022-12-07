@@ -1,6 +1,0 @@
-ignore:
-  - "app.py"
-  - "build.py"
-  - "console_io.py"
-  - "index.py"
-  - "stub_io.py"
