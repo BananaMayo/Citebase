@@ -41,10 +41,10 @@ class TestCitations(unittest.TestCase):
         test=self.testrepo.delete_all_books()
         test_list=self.testrepo.show_books()
         self.assertEqual(test, "All books removed successfully")
-        self.assertEqual(test_list, "No book titles!")
+        self.assertEqual(test_list, [])
 
     def test_empty_list(self):
         self.testrepo.create_book(self.book_1)
         self.testrepo.delete_all_books()
         test_titles = self.testrepo.show_books()
-        self.assertEqual(test_titles, "No book titles!")
+        self.assertEqual(test_titles, [])
