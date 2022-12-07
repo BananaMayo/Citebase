@@ -20,4 +20,9 @@ class CitationServices:
         delete = self._citation_repository.delete_all_books()
         return delete
 
+    def create_bib(self):
+        bib = self._citation_repository.bib_file()
+        return bib
+
+    
 citation_services = CitationServices()
