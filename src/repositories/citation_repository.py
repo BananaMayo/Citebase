@@ -43,6 +43,33 @@ class CitationRepository:
 
         return "All books removed successfully"
 
+    def bib_file(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Books")
+        rows = cursor.fetchall()
 
+        books = []
+
+        for row in rows:
+            books.append({'title': row[0],
+                        'author': row[1],
+                        'year': row[2],
+                        'publisher': row[3]})
+
+        name = input("Name for bib-file: ")
+        file = open(str(name)+'.bib', 'w') 
+
+        book_bib = ""
+        i = 123123
+        brl = '{'
+        brr = '}'
+        tag = f"@book,{brl}tag{i}"
+        for book in books:
+            tag = str.lower(str.replace(book["title"], " ", "")) + str(book["year"]) + str(i)
+            book_bib = book_bib + f" @book{brl}{tag},\n title = '{book['title']}', \n author = '{book['author']}', \n year = '{book['year']}', \n publisher = '{book['publisher']}',\n{brr} \n\n"
+            i = i + 1
+        file.write(book_bib)
+        file.close()
+        
 
 citation_repository = CitationRepository(get_database_connection())
