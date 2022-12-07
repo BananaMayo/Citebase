@@ -22,3 +22,6 @@ disable=raw-checker-failed,
 [REFACTORING]
 
 [DESIGN]
+
+[BASIC]
+good-names=io,i
