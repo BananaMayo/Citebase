@@ -7,40 +7,29 @@ class CitationRepository:
 
     def create_book(self, book):
         cursor = self._connection.cursor()
-
         cursor.execute("INSERT into Books (title, author, year, publisher) VALUES (?, ?, ?, ?)", [book.title, book.author, book.year, book.publisher])
         self._connection.commit()
-
         return "Citation added successfully"
-    
+
     def show_books(self):
         cursor = self._connection.cursor()
-
         cursor.execute("SELECT * FROM Books")
-
         rows = cursor.fetchall()
-
         titles = []
-
         for row in rows:
             titles.append((row[0]))
-        
         return titles
 
-    
     def delete_book(self, title):
         cursor = self._connection.cursor()
-
         cursor.execute("DELETE FROM Books WHERE title= ?", [title])
         self._connection.commit()
-
         return "Book removed successfully"
 
     def delete_all_books(self):
         cursor = self._connection.cursor()
-
         cursor.execute("DELETE FROM Books")
-
+        self._connection.commit()
         return "All books removed successfully"
 
     def bib_file(self):
