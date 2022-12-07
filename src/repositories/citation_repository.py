@@ -40,6 +40,7 @@ class CitationRepository:
         cursor = self._connection.cursor()
 
         cursor.execute("DELETE FROM Books")
+        self._connection.commit()
 
         return "All books removed successfully"
 
