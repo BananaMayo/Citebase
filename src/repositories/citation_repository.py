@@ -25,6 +25,9 @@ class CitationRepository:
         for row in rows:
             titles.append((row[0]))
         
+        if len(titles) == 0:
+            titles = "No book titles!"
+        
         return titles
 
     
