@@ -22,6 +22,6 @@ disable=raw-checker-failed,
 [REFACTORING]
 
 [DESIGN]
-
+min-public-methods = 0
 [BASIC]
 good-names=io,i

@@ -46,7 +46,7 @@ class CitationRepository:
                         'publisher': row[3]})
 
         name = input("Name for bib-file: ")
-        file = open(str(name)+'.bib', 'w') 
+        file = open(str(name)+'.bib', 'w')
 
         book_bib = ""
         i = 123123
@@ -59,6 +59,6 @@ class CitationRepository:
             i = i + 1
         file.write(book_bib)
         file.close()
-        
+
 
 citation_repository = CitationRepository(get_database_connection())

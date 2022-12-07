@@ -24,5 +24,5 @@ class CitationServices:
         bib = self._citation_repository.bib_file()
         return bib
 
-    
+
 citation_services = CitationServices()
