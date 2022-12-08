@@ -27,3 +27,4 @@ class App:
                 delete_all(self.io, self.services)
             elif user_input == "bib":
                 create_bib_file(self.io, self.services)
+
