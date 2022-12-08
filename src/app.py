@@ -17,13 +17,13 @@ class App:
 
             if user_input == 'exit':
                 break
-            if user_input == 'new book':
+            elif user_input == 'new book':
                 book_citation(self.io, self.services)
-            if user_input == "list books":
+            elif user_input == "list books":
                 list_book_titles(self.io, self.services)
-            if user_input == "delete book":
+            elif user_input == "delete book":
                 delete_book(self.io, self.services)
-            if user_input == "delete all":
+            elif user_input == "delete all":
                 delete_all(self.io, self.services)
-            if user_input == "bib":
+            elif user_input == "bib":
                 create_bib_file(self.io, self.services)
