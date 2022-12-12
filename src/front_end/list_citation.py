@@ -6,3 +6,5 @@ def list_book_titles(io, services=citation_services):
     if len(titles) == 0:
         titles = ["No book titles!"]
     io.print('\n'.join(titles))
+    io.print(" ")
+    
