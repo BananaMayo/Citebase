@@ -57,8 +57,11 @@ class CitationRepository:
             tag = str.lower(str.replace(book["title"], " ", "")) + str(book["year"]) + str(i)
             book_bib = book_bib + f" @book{brl}{tag},\n title = '{book['title']}', \n author = '{book['author']}', \n year = '{book['year']}', \n publisher = '{book['publisher']}',\n{brr} \n\n"
             i = i + 1
+
         file.write(book_bib)
         file.close()
+        return "Exported successfully"
+
 
 
 citation_repository = CitationRepository(get_database_connection())
