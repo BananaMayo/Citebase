@@ -7,6 +7,7 @@ from services.citation_service import CitationServices
 
 
 class AppLibrary:
+    #pylint: disable=invalid-name
     def __init__(self):
         testrepo = CitationRepository(get_test_database_connection())
         self.test_services = CitationServices(testrepo)
