@@ -5,7 +5,10 @@ from front_end.delete_book import delete_book
 from front_end.delete_all import delete_all
 from front_end.bibconverter import create_bib_file
 from services.citation_service import citation_services
+<<<<<<< HEAD
 
+=======
+>>>>>>> fb4a7df33f7a8707c6d4a91e1b63f5946feedabe
 
 
 class App:
