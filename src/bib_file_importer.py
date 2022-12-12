@@ -8,9 +8,9 @@ def import_from_file(path):
 
     for i, line in enumerate(lines):
         if line.startswith('@book'):
-            title = lines[i + 1][10:][:-4]
-            author = lines[i + 2][11:][:-4]
-            year = lines[i + 3][9:][:-4]
+            title = lines[i + 1][10:][:-3]
+            author = lines[i + 2][11:][:-3]
+            year = lines[i + 3][9:][:-3]
             publisher = lines[i + 4][14:][:-3]
             book = Book(title, author, year, publisher)
             books.append(book)

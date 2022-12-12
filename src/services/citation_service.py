@@ -1,5 +1,7 @@
 from repositories.citation_repository import citation_repository as default_citation_repository
 from entities.book import Book
+from bib_file_importer import import_from_file
+
 
 class CitationServices:
     def __init__(self, citation_repository= default_citation_repository):
@@ -23,6 +25,11 @@ class CitationServices:
     def create_bib(self):
         bib = self._citation_repository.bib_file()
         return bib
+
+    def import_from_bib_file(self, path):
+        imported_books = import_from_file(path)
+        for book in imported_books:
+            self._citation_repository.create_book(book)
 
 
 citation_services = CitationServices()
