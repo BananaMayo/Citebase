@@ -13,7 +13,7 @@ class App:
 
     def run(self):
         while True:
-            user_input = self.io.input('next command (new book, list books, exit, delete book, delete all, bib):')
+            user_input = self.io.input('next command (new book, list books, exit, delete book, delete all, export, import):')
 
             if user_input == 'exit':
                 os.system("clear")
@@ -30,7 +30,7 @@ class App:
             if user_input == "delete all":
                 os.system("clear")
                 delete_all(self.io, self.services)
-            if user_input == "bib":
+            if user_input == "export":
                 os.system("clear")
                 create_bib_file(self.io, self.services)
             if user_input == "import":

@@ -7,11 +7,11 @@ def import_from_file(path):
     books = []
 
     for i, line in enumerate(lines):
-        if line.startswith('@book'):
-            title = lines[i + 1][10:][:-3]
-            author = lines[i + 2][11:][:-3]
-            year = lines[i + 3][9:][:-3]
-            publisher = lines[i + 4][14:][:-3]
+        if line.replace(" ", "").startswith('@book'):
+            title = lines[i + 1].replace(" ", "")[7:][:-3]
+            author = lines[i + 2].replace(" ", "")[8:][:-3]
+            year = lines[i + 3].replace(" ", "")[6:][:-3]
+            publisher = lines[i + 4].replace(" ", "")[11:][:-3]
             book = Book(title, author, year, publisher)
             books.append(book)
 
