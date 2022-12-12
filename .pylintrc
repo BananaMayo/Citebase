@@ -21,7 +21,8 @@ disable=raw-checker-failed,
         unspecified-encoding,
         invalid-name,
         ungrouped-imports,
-        consider-using-with
+        consider-using-with,
+        wrong-import-order
 
 
 [FORMAT]
