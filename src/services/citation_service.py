@@ -15,8 +15,8 @@ class CitationServices:
         return self._citation_repository.show_books()
 
     def delete_book(self, title):
-        book = self._citation_repository.delete_book(title)
-        return book
+        deleted = self._citation_repository.delete_book(title)
+        return deleted
 
     def delete_all(self):
         delete = self._citation_repository.delete_all_books()
