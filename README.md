@@ -17,6 +17,7 @@ $ poetry install
 ```
 $ poetry shell
 ```
+
 ## Toiminnot komentorivillä
 ### Ohjelman suorittaminen
 Ohjelman pystyy suorittamaan komennolla:
