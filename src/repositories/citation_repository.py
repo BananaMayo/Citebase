@@ -46,7 +46,6 @@ class CitationRepository:
                         'publisher': row[3]})
 
         name = input("Name for bib-file: ")
-        file = open(str(name)+'.bib', 'w')
 
         book_bib = ""
         i = 123123
@@ -57,8 +56,8 @@ class CitationRepository:
             tag = str.lower(str.replace(book["title"], " ", "")) + str(book["year"]) + str(i)
             book_bib = book_bib + f" @book{brl}{tag},\n title = '{book['title']}', \n author = '{book['author']}', \n year = '{book['year']}', \n publisher = '{book['publisher']}',\n{brr} \n\n"
             i = i + 1
-        file.write(book_bib)
-        file.close()
+        with open(str(name)+'.bib', 'w') as file:
+            file.write(book_bib)
 
 
 citation_repository = CitationRepository(get_database_connection())
