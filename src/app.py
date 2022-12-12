@@ -6,7 +6,6 @@ from front_end.delete_all import delete_all
 from front_end.bibconverter import create_bib_file
 from services.citation_service import citation_services
 
-
 class App:
     def __init__(self, io, services=citation_services):
         self.io = io
