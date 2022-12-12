@@ -14,7 +14,15 @@ disable=raw-checker-failed,
         use-symbolic-message-instead,
         missing-module-docstring,
         missing-function-docstring,
-        missing-class-docstring
+        missing-class-docstring,
+        trailing-whitespace,
+        trailing-newlines,
+        too-few-public-methods,
+        unspecified-encoding,
+        invalid-name,
+        ungrouped-imports,
+        consider-using-with
+
 
 [FORMAT]
         max-line-length: 200
