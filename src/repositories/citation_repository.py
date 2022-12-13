@@ -22,7 +22,7 @@ class CitationRepository:
         rows = cursor.fetchall()
         titles = []
         for row in rows:
-            titles.append((row[0]))
+            titles.append((row[0],row[1],row[2],row[3]))
         return titles
 
     def delete_book(self, title):
