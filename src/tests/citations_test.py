@@ -48,7 +48,13 @@ class TestCitations(unittest.TestCase):
         self.testrepo.create_book(self.book_2)
         self.testrepo.create_book(self.book_3)
         books=self.testrepo.show_books()
-        self.assertEqual(books, [self.book_1.title,self.book_2.title,self.book_3.title])
+        self.assertEqual([books[0].title,books[1].title,books[2].title], [self.book_1.title,self.book_2.title,self.book_3.title])
+
+    def test_get_titles(self):
+        self.testrepo.create_book(self.book_1)
+        self.testrepo.create_book(self.book_2)
+        titles=self.testrepo.get_titles()
+        self.assertEqual(titles,[self.book_1.title,self.book_2.title])
 
     def test_delete_book(self):
         self.testrepo.create_book(self.book_1)
@@ -57,6 +63,7 @@ class TestCitations(unittest.TestCase):
         self.testrepo.delete_book(self.book_5.title)
         self.testrepo.delete_book("Terve")
         test_list=self.testrepo.show_books()
+        print(test_list)
         self.assertEqual(len(test_list), 1)
 
     def test_delete_all_books(self):

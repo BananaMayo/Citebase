@@ -1,4 +1,5 @@
 from database_connection import get_database_connection
+from entities.book import Book
 
 
 class CitationRepository:
@@ -7,7 +8,7 @@ class CitationRepository:
 
     def create_book(self, book):
         cursor = self._connection.cursor()
-        if book.title in self.show_books():
+        if book.title in self.get_titles():
             return "\u001b[31mCitation already added"
         if any(c.isalpha() for c in book.year):
             return "\u001b[31mMake sure the year is integer"
@@ -22,16 +23,25 @@ class CitationRepository:
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Books")
         rows = cursor.fetchall()
+        books = []
+        for row in rows:
+            books.append(Book(row[0],row[1],str(row[2]),row[3]))
+        return books
+
+    def get_titles(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Books")
+        rows = cursor.fetchall()
         titles = []
         for row in rows:
-            titles.append((row[0],row[1],row[2],row[3]))
+            titles.append(row[0])
         return titles
 
     def delete_book(self, title):
         cursor = self._connection.cursor()
         if len(title) == 0:
             return "\u001b[31mMake sure the input is not empty"
-        if title not in self.show_books():
+        if title not in self.get_titles():
             return "\u001b[31mBook not found"
         cursor.execute("DELETE FROM Books WHERE title= ?", [title])
         self._connection.commit()
