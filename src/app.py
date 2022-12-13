@@ -34,4 +34,5 @@ class App:
                 os.system("clear")
                 create_bib_file(self.io, self.services)
             if user_input == "import":
+                os.system("clear")
                 import_from_bib_file(self.io, self.services)

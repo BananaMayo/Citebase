@@ -1,25 +1,17 @@
 *** Settings ***
 Library  ../AppLibrary.py
+Resource  resources.robot
 
 *** Test Cases ***
-Application starts with prompt
-    input  exit
-    Run Application
-    Output Should Contain  next command (new book, list books, exit, delete book, delete all, bib):
-
-Application indicates empty list in listing
+Application Indicates Empty List In Listing
     input  list books
     input  exit
     Run Application
     Output Should Contain  No book titles!
 
 Adding New Book Is Listed
-    input  new book
-    input  Harry Potter2
-    input  JK Rowling
-    input  2000
-    input  Otava
+    Add Book  Harry Potter  JK Rowling  2000  Otava
     input  list books
     input  exit
     Run Application
-    Output Should Contain  Harry Potter2
+    Output Should Contain  Harry Potter

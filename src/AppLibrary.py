@@ -19,10 +19,12 @@ class AppLibrary:
 
     def output_should_contain(self, value):
         outputs = self._io.outputs
-        if not value in outputs:
-            raise AssertionError(
-                f"Output \"{value}\" is not in {str(outputs)}"
-            )
+        for output in outputs:
+            if output.startswith(value):
+                return
+        raise AssertionError(
+            f"Output \"{value}\" is not in {str(outputs)}"
+        )
 
     def run_application(self):
         self._app.run()
