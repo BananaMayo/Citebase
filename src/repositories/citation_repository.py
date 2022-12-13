@@ -7,6 +7,8 @@ class CitationRepository:
 
     def create_book(self, book):
         cursor = self._connection.cursor()
+        if book.title in self.show_books():
+            return "\u001b[31mCitation already added"
         if any(c.isalpha() for c in book.year):
             return "\u001b[31mMake sure the year is integer"
         if len(book.title) == 0 or len(book.author) == 0 or len(book.year) == 0 or len(book.publisher) == 0:
