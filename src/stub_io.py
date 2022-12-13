@@ -4,7 +4,8 @@ class StubIO:
         self.outputs = []
 
     def print(self, value):
-        self.outputs.append(value)
+        #pylint: disable=unnecessary-dunder-call
+        self.outputs.append(value.__repr__())
 
     def input(self, prompt):
         self.print(prompt)
