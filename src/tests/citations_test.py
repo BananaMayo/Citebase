@@ -15,16 +15,26 @@ class TestCitations(unittest.TestCase):
         self.book_2=Book("Taru sormusten herrasta","Tolkien","2022","Otava")
         self.book_3=Book("Muumipeikko ja pyrstötähti","Tove Jansson","2000","Otava")
         self.book_4=Book("Muumipeikko ja pyrstötähti","Tove Jansson","abc","Otava")
-        self.book_5=Book("","Tove Jansson","abc","Otava")
+        self.book_5=Book("","Tove Jansson","2000","Otava")
+        self.book_6=Book("Muumipeikko ja pyrstötähti","","abc","Otava")
+        self.book_7=Book("Muumipeikko","Tove Jansson","","Otava")
+        self.book_8=Book("Muumipeikko","Tove Jansson","2000","")
         initialize_test_database()
 
 
     def test_create_book_citation(self):
         self.testrepo.create_book(self.book_1)
         self.testrepo.create_book(self.book_4)
-        self.testrepo.create_book(self.book_5)
         test_list=self.testrepo.show_books()
         self.assertEqual(len(test_list), 1)
+    
+    def test_create_book_empty_inputs(self):
+        self.testrepo.create_book(self.book_5)
+        self.testrepo.create_book(self.book_6)
+        self.testrepo.create_book(self.book_7)
+        self.testrepo.create_book(self.book_8)
+        test_list=self.testrepo.show_books()
+        self.assertEqual(len(test_list), 0)
     
     def test_create_existing_citation(self):
         self.testrepo.create_book(self.book_1)
