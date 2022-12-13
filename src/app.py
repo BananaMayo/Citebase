@@ -13,7 +13,7 @@ class App:
 
     def run(self):
         while True:
-            user_input = self.io.input('next command (new book, list books, exit, delete book, delete all, export, import):')
+            user_input = self.io.input("\u001b[0mnext command (new book, list books, exit, delete book, delete all, export, import):")
 
             if user_input == 'exit':
                 os.system("clear")

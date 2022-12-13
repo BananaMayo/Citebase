@@ -9,7 +9,7 @@ class CitationRepository:
         cursor = self._connection.cursor()
         cursor.execute("INSERT into Books (title, author, year, publisher) VALUES (?, ?, ?, ?)", [book.title, book.author, book.year, book.publisher])
         self._connection.commit()
-        return "Citation added successfully"
+        return 	"\u001b[32mCitation added successfully"
 
     def show_books(self):
         cursor = self._connection.cursor()
@@ -24,13 +24,13 @@ class CitationRepository:
         cursor = self._connection.cursor()
         cursor.execute("DELETE FROM Books WHERE title= ?", [title])
         self._connection.commit()
-        return "Book removed successfully"
+        return 	"\u001b[32mBook removed successfully"
 
     def delete_all_books(self):
         cursor = self._connection.cursor()
         cursor.execute("DELETE FROM Books")
         self._connection.commit()
-        return "All books removed successfully"
+        return "\u001b[32mAll books removed successfully"
 
     def bib_file(self):
         cursor = self._connection.cursor()
@@ -60,7 +60,7 @@ class CitationRepository:
 
         file.write(book_bib)
         file.close()
-        return "Exported successfully"
+        return "\u001b[32mExported successfully"
 
 
 
