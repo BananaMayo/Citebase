@@ -28,8 +28,12 @@ class CitationServices:
 
     def import_from_bib_file(self, path):
         imported_books = import_from_file(path)
-        for book in imported_books:
-            self._citation_repository.create_book(book)
+        if imported_books:
+            for book in imported_books:
+                self._citation_repository.create_book(book)
+            return True
+
+        return False
 
 
 citation_services = CitationServices()

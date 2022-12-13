@@ -6,5 +6,8 @@ def create_bib_file(io, services=citation_services):
 
 def import_from_bib_file(io, services=citation_services):
     path = io.input("path: ")
-    services.import_from_bib_file(path)
-    print("Import done")
+    result = services.import_from_bib_file(path)
+    if result is True:
+        io.print("Import successful")
+    else:
+        io.print("Something went wrong")
