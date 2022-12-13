@@ -11,16 +11,21 @@ class TestCitations(unittest.TestCase):
     def setUp(self):
         self.testrepo=CitationRepository(get_test_database_connection())
         self.testservices=citation_services
-        self.book_1=Book("Harry Potter","Rowling",2000,"Otava")
-        self.book_2=Book("Taru sormusten herrasta","Tolkien",2022,"Otava")
-        self.book_3=Book("Muumipeikko ja pyrstötähti","Tove Jansson",2000,"Otava")
+        self.book_1=Book("Harry Potter","Rowling","2000","Otava")
+        self.book_2=Book("Taru sormusten herrasta","Tolkien","2022","Otava")
+        self.book_3=Book("Muumipeikko ja pyrstötähti","Tove Jansson","2000","Otava")
+        self.book_4=Book("Muumipeikko ja pyrstötähti","Tove Jansson","abc","Otava")
+        self.book_5=Book("","Tove Jansson","abc","Otava")
         initialize_test_database()
 
 
     def test_create_book_citation(self):
         self.testrepo.create_book(self.book_1)
+        self.testrepo.create_book(self.book_4)
+        self.testrepo.create_book(self.book_5)
         test_list=self.testrepo.show_books()
         self.assertEqual(len(test_list), 1)
+
 
     def test_show_books(self):
         self.testrepo.create_book(self.book_1)
@@ -32,14 +37,16 @@ class TestCitations(unittest.TestCase):
     def test_delete_book(self):
         self.testrepo.create_book(self.book_1)
         self.testrepo.create_book(self.book_2)
-        test=self.testrepo.delete_book(self.book_1.title)
+        self.testrepo.delete_book(self.book_1.title)
+        self.testrepo.delete_book(self.book_5.title)
+        self.testrepo.delete_book("Terve")
         test_list=self.testrepo.show_books()
         self.assertEqual(len(test_list), 1)
 
     def test_delete_all_books(self):
         self.testrepo.create_book(self.book_1)
         self.testrepo.create_book(self.book_2)
-        test=self.testrepo.delete_all_books()
+        self.testrepo.delete_all_books()
         test_list=self.testrepo.show_books()
         self.assertEqual(test_list, [])
 
@@ -50,7 +57,7 @@ class TestCitations(unittest.TestCase):
         self.assertEqual(test_titles, [])
 
     def test_import(self):
-        imported_book = import_from_file("src/tests/resources/test.bib")[0]
+        imported_book = import_from_file("src/tests/resources/test")[0]
         self.assertEqual(imported_book.title, "How to Import")
         self.assertEqual(imported_book.year, "1888")
         self.assertEqual(imported_book.author, "Myself")

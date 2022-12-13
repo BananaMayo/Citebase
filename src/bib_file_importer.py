@@ -6,7 +6,7 @@ def extract_item(target, bib_item):
     return re.search(pattern, bib_item).group(0)
 
 def import_from_file(path):
-    f = open(path, "r")
+    f = open(path+".bib", "r")
     lines = f.readlines()
 
     books = []
