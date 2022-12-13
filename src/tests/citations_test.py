@@ -57,7 +57,7 @@ class TestCitations(unittest.TestCase):
         self.assertEqual(test_titles, [])
 
     def test_import(self):
-        imported_book = import_from_file("src/tests/resources/test.bib")[0]
+        imported_book = import_from_file("src/tests/resources/test")[0]
         self.assertEqual(imported_book.title, "How to Import")
         self.assertEqual(imported_book.year, "1888")
         self.assertEqual(imported_book.author, "Myself")
