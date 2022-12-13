@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.8.10 on linux)" generated="20221213 14:49:14.160" rpa="false" schemaversion="3">
+<suite id="s1" name="Src" source="/home/niklasny/Citebase/src">
+<suite id="s1-s1" name="Tests" source="/home/niklasny/Citebase/src/tests">
+<suite id="s1-s1-s1" name="Add Book" source="/home/niklasny/Citebase/src/tests/add_book.robot">
+<test id="s1-s1-s1-t1" name="Application starts with prompt" line="5">
+<kw name="Input" library="AppLibrary">
+<arg>exit</arg>
+<status status="PASS" starttime="20221213 14:49:14.184" endtime="20221213 14:49:14.190"/>
+</kw>
+<kw name="Run Application" library="AppLibrary">
+<status status="PASS" starttime="20221213 14:49:14.191" endtime="20221213 14:49:14.192"/>
+</kw>
+<kw name="Output Should Contain" library="AppLibrary">
+<arg>next command (new book, list books, exit, delete book, delete all, bib):</arg>
+<msg timestamp="20221213 14:49:14.192" level="FAIL">Output "next command (new book, list books, exit, delete book, delete all, bib):" is not in ['\x1b[0mnext command (new book, list books, exit, delete book, delete all, export, import):']</msg>
+<status status="FAIL" starttime="20221213 14:49:14.192" endtime="20221213 14:49:14.192"/>
+</kw>
+<status status="FAIL" starttime="20221213 14:49:14.184" endtime="20221213 14:49:14.193">Output "next command (new book, list books, exit, delete book, delete all, bib):" is not in ['\x1b[0mnext command (new book, list books, exit, delete book, delete all, export, import):']</status>
+</test>
+<test id="s1-s1-s1-t2" name="Application indicates empty list in listing" line="10">
+<kw name="Input" library="AppLibrary">
+<arg>list books</arg>
+<status status="PASS" starttime="20221213 14:49:14.193" endtime="20221213 14:49:14.200"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>exit</arg>
+<status status="PASS" starttime="20221213 14:49:14.201" endtime="20221213 14:49:14.201"/>
+</kw>
+<kw name="Run Application" library="AppLibrary">
+<status status="PASS" starttime="20221213 14:49:14.201" endtime="20221213 14:49:14.203"/>
+</kw>
+<kw name="Output Should Contain" library="AppLibrary">
+<arg>No book titles!</arg>
+<status status="PASS" starttime="20221213 14:49:14.204" endtime="20221213 14:49:14.204"/>
+</kw>
+<status status="PASS" starttime="20221213 14:49:14.193" endtime="20221213 14:49:14.204"/>
+</test>
+<test id="s1-s1-s1-t3" name="Adding New Book Is Listed" line="16">
+<kw name="Input" library="AppLibrary">
+<arg>new book</arg>
+<status status="PASS" starttime="20221213 14:49:14.204" endtime="20221213 14:49:14.210"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>Harry Potter2</arg>
+<status status="PASS" starttime="20221213 14:49:14.211" endtime="20221213 14:49:14.211"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>JK Rowling</arg>
+<status status="PASS" starttime="20221213 14:49:14.211" endtime="20221213 14:49:14.211"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>2000</arg>
+<status status="PASS" starttime="20221213 14:49:14.211" endtime="20221213 14:49:14.211"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>Otava</arg>
+<status status="PASS" starttime="20221213 14:49:14.211" endtime="20221213 14:49:14.211"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>list books</arg>
+<status status="PASS" starttime="20221213 14:49:14.212" endtime="20221213 14:49:14.212"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>exit</arg>
+<status status="PASS" starttime="20221213 14:49:14.212" endtime="20221213 14:49:14.212"/>
+</kw>
+<kw name="Run Application" library="AppLibrary">
+<status status="PASS" starttime="20221213 14:49:14.212" endtime="20221213 14:49:14.220"/>
+</kw>
+<kw name="Output Should Contain" library="AppLibrary">
+<arg>Harry Potter2</arg>
+<status status="PASS" starttime="20221213 14:49:14.220" endtime="20221213 14:49:14.220"/>
+</kw>
+<status status="PASS" starttime="20221213 14:49:14.204" endtime="20221213 14:49:14.220"/>
+</test>
+<status status="FAIL" starttime="20221213 14:49:14.172" endtime="20221213 14:49:14.221"/>
+</suite>
+<suite id="s1-s1-s2" name="Delete Book" source="/home/niklasny/Citebase/src/tests/delete_book.robot">
+<test id="s1-s1-s2-t1" name="Deleting One Book" line="5">
+<kw name="Add Book" library="resources">
+<arg>Harry Potter</arg>
+<arg>JK Rowling</arg>
+<arg>2000</arg>
+<arg>Otava</arg>
+<kw name="Input" library="AppLibrary">
+<arg>new book</arg>
+<status status="PASS" starttime="20221213 14:49:14.225" endtime="20221213 14:49:14.232"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${title}</arg>
+<status status="PASS" starttime="20221213 14:49:14.232" endtime="20221213 14:49:14.233"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${author}</arg>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.233"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${year}</arg>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.233"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${publisher}</arg>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.233"/>
+</kw>
+<status status="PASS" starttime="20221213 14:49:14.225" endtime="20221213 14:49:14.233"/>
+</kw>
+<kw name="Add Book" library="resources">
+<arg>Tirakirja</arg>
+<arg>Antti Laaksonen</arg>
+<arg>2020</arg>
+<arg>HY</arg>
+<kw name="Input" library="AppLibrary">
+<arg>new book</arg>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.233"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${title}</arg>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${author}</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${year}</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>${publisher}</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<status status="PASS" starttime="20221213 14:49:14.233" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>delete book</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>Tirakirja</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>list books</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Input" library="AppLibrary">
+<arg>exit</arg>
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.234"/>
+</kw>
+<kw name="Run Application" library="AppLibrary">
+<status status="PASS" starttime="20221213 14:49:14.234" endtime="20221213 14:49:14.250"/>
+</kw>
+<kw name="Output Should Contain" library="AppLibrary">
+<arg>Harry Potter</arg>
+<status status="PASS" starttime="20221213 14:49:14.250" endtime="20221213 14:49:14.250"/>
+</kw>
+<status status="PASS" starttime="20221213 14:49:14.225" endtime="20221213 14:49:14.251"/>
+</test>
+<status status="PASS" starttime="20221213 14:49:14.221" endtime="20221213 14:49:14.251"/>
+</suite>
+<status status="FAIL" starttime="20221213 14:49:14.171" endtime="20221213 14:49:14.251"/>
+</suite>
+<status status="FAIL" starttime="20221213 14:49:14.161" endtime="20221213 14:49:14.252"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Src">Src</stat>
+<stat pass="3" fail="1" skip="0" id="s1-s1" name="Tests">Src.Tests</stat>
+<stat pass="2" fail="1" skip="0" id="s1-s1-s1" name="Add Book">Src.Tests.Add Book</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s2" name="Delete Book">Src.Tests.Delete Book</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
