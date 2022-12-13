@@ -8,6 +8,6 @@ def import_from_bib_file(io, services=citation_services):
     path = io.input("path: ")
     result = services.import_from_bib_file(path)
     if result is True:
-        io.print("Import successful")
+        io.print("\u001b[32mImport successful")
     else:
-        io.print("Something went wrong")
+        io.print("\u001b[31mSomething went wrong")
