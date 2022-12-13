@@ -25,6 +25,12 @@ class TestCitations(unittest.TestCase):
         self.testrepo.create_book(self.book_5)
         test_list=self.testrepo.show_books()
         self.assertEqual(len(test_list), 1)
+    
+    def test_create_existing_citation(self):
+        self.testrepo.create_book(self.book_1)
+        self.testrepo.create_book(self.book_1)
+        test_list=self.testrepo.show_books()
+        self.assertEqual(len(test_list), 1)
 
 
     def test_show_books(self):
