@@ -7,6 +7,9 @@ class CitationRepository:
 
     def create_book(self, book):
         cursor = self._connection.cursor()
+        if any(c.isalpha() for c in book.year):
+            return "\u001b[31mMake sure the year is integer"
+            
         cursor.execute("INSERT into Books (title, author, year, publisher) VALUES (?, ?, ?, ?)", [book.title, book.author, book.year, book.publisher])
         self._connection.commit()
         return 	"\u001b[32mCitation added successfully"
