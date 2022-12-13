@@ -15,3 +15,10 @@ Adding New Book Is Listed
     input  exit
     Run Application
     Output Should Contain  Harry Potter
+
+User Cannot Add Existing Book
+    Add Book  Harry Potter  JK Rowling  2000  Otava
+    Add Book  Harry Potter  JK Rowling  2000  Otava
+    input  exit
+    Run Application
+    output should contain  Citation already added

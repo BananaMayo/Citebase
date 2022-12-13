@@ -20,7 +20,7 @@ class AppLibrary:
     def output_should_contain(self, value):
         outputs = self._io.outputs
         for output in outputs:
-            if output.startswith(value):
+            if value in output:
                 return
         raise AssertionError(
             f"Output \"{value}\" is not in {str(outputs)}"
