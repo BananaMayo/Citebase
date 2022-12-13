@@ -4,6 +4,7 @@ from repositories.citation_repository import CitationRepository
 from entities.book import Book
 from database_connection import get_test_database_connection
 from initialize_database import initialize_test_database
+from bib_file_importer import import_from_file
 
 
 class TestCitations(unittest.TestCase):
@@ -48,3 +49,10 @@ class TestCitations(unittest.TestCase):
         self.testrepo.delete_all_books()
         test_titles = self.testrepo.show_books()
         self.assertEqual(test_titles, [])
+
+    def test_import(self):
+        imported_book = import_from_file("src/tests/resources/test.bib")[0]
+        self.assertEqual(imported_book.title, "How to Import")
+        self.assertEqual(imported_book.year, "1888")
+        self.assertEqual(imported_book.author, "Myself")
+        self.assertEqual(imported_book.publisher, "HY")
