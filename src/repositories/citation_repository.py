@@ -9,6 +9,8 @@ class CitationRepository:
         cursor = self._connection.cursor()
         if any(c.isalpha() for c in book.year):
             return "\u001b[31mMake sure the year is integer"
+        if len(book.title) == 0 or len(book.author) == 0 or len(book.year) == 0 or len(book.publisher) == 0:
+            return "\u001b[31mMake sure none of the inputs are empty"
             
         cursor.execute("INSERT into Books (title, author, year, publisher) VALUES (?, ?, ?, ?)", [book.title, book.author, book.year, book.publisher])
         self._connection.commit()
@@ -25,6 +27,10 @@ class CitationRepository:
 
     def delete_book(self, title):
         cursor = self._connection.cursor()
+        if len(title) == 0:
+            return "\u001b[31mMake sure the input is not empty"
+        if title not in self.show_books():
+            return "\u001b[31mBook not found"
         cursor.execute("DELETE FROM Books WHERE title= ?", [title])
         self._connection.commit()
         return 	"\u001b[32mBook removed successfully"
