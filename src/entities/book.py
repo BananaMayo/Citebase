@@ -6,4 +6,4 @@ class Book:
         self.publisher = publisher
 
     def __repr__(self):
-        return f'{self.title:20}{self.author:20}{self.year:20}{self.publisher:20}'
+        return f'{self.title:34}{self.author:20}{self.year:6}{self.publisher:20}'
